@@ -66,22 +66,24 @@ p.spei_white <-
   ggplot(compare, aes(id_annotator, n_spei_white)) +
   geom_bar(position="dodge",stat="identity") +
   geom_text(aes(label=n_spei_white), position=position_dodge(width=0.9), vjust=-0.25) +
+  ylim(0, 1500) +
   facet_wrap(~compare$new_id_flock)
 p.spei_white
 
 ```
-brown plumage
+Brown plumage
 ```{r plot counts spei brown, warning = FALSE}
 # plot counts for comparison
 p.spei_brown <-
   ggplot(compare, aes(id_annotator, n_spei_brown)) +
   geom_bar(position="dodge",stat="identity") +
   geom_text(aes(label=n_spei_brown), position=position_dodge(width=0.9), vjust=-0.25) +
+  ylim(0, 1500) +
   facet_wrap(~compare$new_id_flock)
 p.spei_brown
 
 ```
-mottled plumage
+Mottled plumage
 ```{r plot counts spei mottled, warning = FALSE}
 # plot counts for comparison
 p.spei_mottled <-
