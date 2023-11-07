@@ -1,0 +1,86 @@
+---
+title: "Compare annotator counts"
+author: 
+date: "`r Sys.Date()`"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+# got packages?
+library(ggplot2) # plot data
+
+# set current date
+today<-Sys.Date()
+yesterday <- as.POSIXct(today-1)
+```
+
+Compare annotator counts of eiders for images processed by everyone so far...
+
+```{r data wrangling, warning = FALSE}
+# load spreadsheets summarizing counts used by each annotator
+
+# afm
+afm <- read.csv("output/temp/spei_winterSurvey_imageList_afm_20231009.csv")
+# ljy
+ljy <- read.csv("output/temp/spei_winterSurvey_imageList_ljy_20231009.csv")
+# emm
+emm <- read.csv("output/temp/spei_winterSurvey_imageList_emm_20231009.csv")
+
+# merge csv files with rbind
+all <- rbind.data.frame(afm, ljy, emm)
+
+# remove records with no counts (i.e., photos not processed)
+completed <- all[complete.cases(all$n_spei_white), ]
+
+# add "dt" prefix to flock ID because ggplot2 facet_wrap function won't work with IDs that start with a number
+completed$new_id_flock <- paste("id", completed$id_flock, sep = "")
+
+# remove flocks that require > 1 image to count (i.e., flocks that span multi images) and flocks not counted by all 3 annotators
+# create vector of flock IDs that match the above criteria
+remove <- c("20230315_rep4_11a",
+"20230315_rep4_17",
+"20230315_rep4_18",
+"20230315_rep4_18a",
+"20230315_rep4_20",
+"20230315_rep4_24a",
+"20230315_rep4_24b",
+"20230315_rep4_28",
+"20230315_rep4_4",
+"20230315_rep4_4b",
+"20230315_rep4_4a",
+"20230315_rep4_7a",
+"20230315_rep4_24d")
+
+# remove those flock IDs from the data frame
+compare <- completed[!completed$id_flock %in% remove, ]
+```
+
+```{r plot counts, warning = FALSE}
+# plot counts for comparison
+p.spei_white <-
+  ggplot(compare, aes(id_annotator, n_spei_white)) +
+  geom_bar(position="dodge",stat="identity") +
+  geom_text(aes(label=n_spei_white), position=position_dodge(width=0.9), vjust=-0.25) +
+  facet_wrap(~compare$new_id_flock)
+p.spei_white
+
+p.spei_brown <-
+  ggplot(compare, aes(id_annotator, n_spei_brown)) +
+  geom_bar(position="dodge",stat="identity") +
+  geom_text(aes(label=n_spei_brown), position=position_dodge(width=0.9), vjust=-0.25) +
+  facet_wrap(~compare$new_id_flock)
+p.spei_brown
+
+p.spei_mottled <-
+  ggplot(compare, aes(id_annotator, n_spei_mottled)) +
+  geom_bar(position="dodge",stat="identity") +
+  geom_text(aes(label=n_spei_mottled), position=position_dodge(width=0.9), vjust=-0.25) +
+  facet_wrap(~compare$new_id_flock)
+p.spei_mottled
+
+```
