@@ -19,7 +19,7 @@ today<-Sys.Date()
 yesterday <- as.POSIXct(today-1)
 ```
 
-Compare annotator counts of eiders for images processed by everyone so far...
+Compare annotator counts of eiders for images processed by everyone so far....
 
 ```{r data wrangling, warning = FALSE}
 # load spreadsheets summarizing counts used by each annotator
