@@ -1,17 +1,25 @@
-name: "spei_winter_flock_image_processing"
+name: SPEI Image Processing
 output_dir: ../docs
 navbar:
-  title: "spei_winter_flock_image_processing"
+  title: SPEI Image Processing
   left:
   - text: Home
     href: index.html
+  - text: Compare Counts
+    href: compare_annotator_counts.html
   - text: About
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/DJRIZZ/spei_winter_flock_image_processing
 output:
   workflowr::wflow_html:
     toc: yes
-    toc_float: yes
-    theme: cosmo
+    toc_float:
+      collapsed: no
+    theme: flatly
+    code_folding: hide
     highlight: textmate
