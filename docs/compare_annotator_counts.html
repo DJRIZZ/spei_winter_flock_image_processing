@@ -461,13 +461,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong14d364b">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtree0219bcd956745eac2dea64140f4a7936e7a3018etargetblank0219bcda">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 14d364b
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/0219bcd956745eac2dea64140f4a7936e7a3018e" target="_blank">0219bcd</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong14d364b"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtree0219bcd956745eac2dea64140f4a7936e7a3018etargetblank0219bcda"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -476,7 +478,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 14d364b.
+The results in this page were generated with repository version
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/0219bcd956745eac2dea64140f4a7936e7a3018e" target="_blank">0219bcd</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -493,17 +496,18 @@ were generated:
 Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    admin/
+    Ignored:    data/images_2023/
+    Ignored:    data/spei_winterSurvey2023_photographedFlockList_20231009.xlsx
+    Ignored:    data/spei_winterSurvey_imageList_20231009.xlsx
     Ignored:    documents/
     Ignored:    incoming/
     Ignored:    metadata/
+    Ignored:    protocols/
 
 Untracked files:
     Untracked:  analysis/home.Rmd
     Untracked:  code/workflowr_commands_spei_winterSurvey_imageProcessing.R
     Untracked:  data/data_README.txt
-    Untracked:  data/images_2023/
-    Untracked:  data/spei_winterSurvey2023_photographedFlockList_20231009.xlsx
-    Untracked:  data/spei_winterSurvey_imageList_20231009.xlsx
     Untracked:  output/drive-download-20231106T195800Z-001.zip
     Untracked:  output/output_README.txt
     Untracked:  output/output_afm/
@@ -512,10 +516,9 @@ Untracked files:
     Untracked:  output/temp/
     Untracked:  output/temp_djr_annotation_review_20231102-20231106T181743Z-001.zip
     Untracked:  output/test_20230315_flocks_rep4/
-    Untracked:  protocols/
 
 Unstaged changes:
-    Modified:   analysis/_site.yml
+    Modified:   .gitignore
 
 </code></pre>
 <p>
@@ -567,7 +570,41 @@ Message
 Rmd
 </td>
 <td>
-14d364b
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/blob/0219bcd956745eac2dea64140f4a7936e7a3018e/analysis/compare_annotator_counts.Rmd" target="_blank">0219bcd</a>
+</td>
+<td>
+Daniel Rizzolo
+</td>
+<td>
+2023-11-06
+</td>
+<td>
+updated titles
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DJRIZZ/spei_winter_flock_image_processing/0d0d37809ed8f96c8a38f5513a99bc7321b5b896/docs/compare_annotator_counts.html" target="_blank">0d0d378</a>
+</td>
+<td>
+Daniel Rizzolo
+</td>
+<td>
+2023-11-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/blob/14d364be18b59212b9fc4a9587f544e4749d70f5/analysis/compare_annotator_counts.Rmd" target="_blank">14d364b</a>
 </td>
 <td>
 Daniel Rizzolo
@@ -624,6 +661,7 @@ remove &lt;- c(&quot;20230315_rep4_11a&quot;,
 
 # remove those flock IDs from the data frame
 compare &lt;- completed[!completed$id_flock %in% remove, ]</code></pre>
+<p>White plumage</p>
 <pre class="r"><code># plot counts for comparison
 p.spei_white &lt;-
   ggplot(compare, aes(id_annotator, n_spei_white)) +
@@ -631,21 +669,25 @@ p.spei_white &lt;-
   geom_text(aes(label=n_spei_white), position=position_dodge(width=0.9), vjust=-0.25) +
   facet_wrap(~compare$new_id_flock)
 p.spei_white</code></pre>
-<p><img src="figure/compare_annotator_counts.Rmd/plot%20counts-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>p.spei_brown &lt;-
+<p><img src="figure/compare_annotator_counts.Rmd/plot%20counts%20spei%20white-1.png" width="672" style="display: block; margin: auto;" />
+brown plumage</p>
+<pre class="r"><code># plot counts for comparison
+p.spei_brown &lt;-
   ggplot(compare, aes(id_annotator, n_spei_brown)) +
   geom_bar(position=&quot;dodge&quot;,stat=&quot;identity&quot;) +
   geom_text(aes(label=n_spei_brown), position=position_dodge(width=0.9), vjust=-0.25) +
   facet_wrap(~compare$new_id_flock)
 p.spei_brown</code></pre>
-<p><img src="figure/compare_annotator_counts.Rmd/plot%20counts-2.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>p.spei_mottled &lt;-
+<p><img src="figure/compare_annotator_counts.Rmd/plot%20counts%20spei%20brown-1.png" width="672" style="display: block; margin: auto;" />
+mottled plumage</p>
+<pre class="r"><code># plot counts for comparison
+p.spei_mottled &lt;-
   ggplot(compare, aes(id_annotator, n_spei_mottled)) +
   geom_bar(position=&quot;dodge&quot;,stat=&quot;identity&quot;) +
   geom_text(aes(label=n_spei_mottled), position=position_dodge(width=0.9), vjust=-0.25) +
   facet_wrap(~compare$new_id_flock)
 p.spei_mottled</code></pre>
-<p><img src="figure/compare_annotator_counts.Rmd/plot%20counts-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/compare_annotator_counts.Rmd/plot%20counts%20spei%20mottled-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
