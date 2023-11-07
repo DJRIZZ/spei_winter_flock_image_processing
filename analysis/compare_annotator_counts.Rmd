@@ -59,8 +59,8 @@ remove <- c("20230315_rep4_11a",
 # remove those flock IDs from the data frame
 compare <- completed[!completed$id_flock %in% remove, ]
 ```
-
-```{r plot counts, warning = FALSE}
+White plumage
+```{r plot counts spei white, warning = FALSE}
 # plot counts for comparison
 p.spei_white <-
   ggplot(compare, aes(id_annotator, n_spei_white)) +
@@ -69,6 +69,10 @@ p.spei_white <-
   facet_wrap(~compare$new_id_flock)
 p.spei_white
 
+```
+brown plumage
+```{r plot counts spei brown, warning = FALSE}
+# plot counts for comparison
 p.spei_brown <-
   ggplot(compare, aes(id_annotator, n_spei_brown)) +
   geom_bar(position="dodge",stat="identity") +
@@ -76,6 +80,10 @@ p.spei_brown <-
   facet_wrap(~compare$new_id_flock)
 p.spei_brown
 
+```
+mottled plumage
+```{r plot counts spei mottled, warning = FALSE}
+# plot counts for comparison
 p.spei_mottled <-
   ggplot(compare, aes(id_annotator, n_spei_mottled)) +
   geom_bar(position="dodge",stat="identity") +
