@@ -461,15 +461,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtreea80aa454ade1419f6c81c74d648839d0500ba702targetblanka80aa45a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtree27f76c2111e931f847213a58e8263eda97202e32targetblank27f76c2a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/a80aa454ade1419f6c81c74d648839d0500ba702" target="_blank">a80aa45</a>
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/27f76c2111e931f847213a58e8263eda97202e32" target="_blank">27f76c2</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtreea80aa454ade1419f6c81c74d648839d0500ba702targetblanka80aa45a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtree27f76c2111e931f847213a58e8263eda97202e32targetblank27f76c2a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -479,7 +479,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/a80aa454ade1419f6c81c74d648839d0500ba702" target="_blank">a80aa45</a>.
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/27f76c2111e931f847213a58e8263eda97202e32" target="_blank">27f76c2</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -513,6 +513,7 @@ Untracked files:
     Untracked:  output/output_afm/
     Untracked:  output/output_emm/
     Untracked:  output/output_ljy/
+    Untracked:  output/spei_winterSurvey_imageList_all_20231107.csv
     Untracked:  output/temp/
     Untracked:  output/temp_djr_annotation_review_20231102-20231106T181743Z-001.zip
     Untracked:  output/test_20230315_flocks_rep4/
@@ -565,6 +566,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/blob/27f76c2111e931f847213a58e8263eda97202e32/analysis/compare_annotator_counts.Rmd" target="_blank">27f76c2</a>
+</td>
+<td>
+Daniel Rizzolo
+</td>
+<td>
+2023-11-07
+</td>
+<td>
+add table
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DJRIZZ/spei_winter_flock_image_processing/844bf62a1ee56341f0a6cccf1188947dc4a7fb7d/docs/compare_annotator_counts.html" target="_blank">844bf62</a>
+</td>
+<td>
+Daniel Rizzolo
+</td>
+<td>
+2023-11-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -760,7 +795,7 @@ initial commit
 </div>
 </div>
 <p>Compare annotator counts of eiders for images processed by everyone
-so far…</p>
+so far….</p>
 <pre class="r"><code># load spreadsheets summarizing counts used by each annotator
 
 # afm
@@ -797,6 +832,44 @@ remove &lt;- c(&quot;20230315_rep4_11a&quot;,
 
 # remove those flock IDs from the data frame
 compare &lt;- completed[!completed$id_flock %in% remove, ]</code></pre>
+<pre class="r"><code>present &lt;- cbind.data.frame(compare$id_photo, compare$id_flock, compare$id_annotator, compare$n_spei_white, compare$n_spei_brown, compare$n_spei_mottled)
+names &lt;- c(&quot;id_photo&quot;, &quot;id_flock&quot;, &quot;id_annotator&quot;, &quot;n_white&quot;, &quot;n_brown&quot;, &quot;n_mottled&quot;)
+colnames(present) &lt;- names
+present[order(present$id_flock),]</code></pre>
+<pre><code>   id_photo          id_flock id_annotator n_white n_brown n_mottled
+7  KI_05892  20230315_rep4_15          afm     895    1119         3
+18 KI_05898  20230315_rep4_15          ljy     852    1045         0
+29 KI_05892  20230315_rep4_15          emm     891    1112         2
+8  KI_05906  20230315_rep4_16          afm     100      95         1
+19 KI_05910  20230315_rep4_16          ljy      84      53         0
+30 KI_05908  20230315_rep4_16          emm      92      66         0
+1  KI_05703   20230315_rep4_2          afm      32      29         1
+12 KI_05704   20230315_rep4_2          ljy      32      29         1
+23 KI_05701   20230315_rep4_2          emm      32      29         1
+9  KI_06008  20230315_rep4_21          afm     328     352         1
+20 KI_06012  20230315_rep4_21          ljy     324     343         0
+31 KI_06012  20230315_rep4_21          emm     329     346         0
+10 KI_06045 20230315_rep4_24c          afm      34      30         1
+21 KI_06045 20230315_rep4_24c          ljy      32      30         0
+32 KI_06044 20230315_rep4_24c          emm      32      30         0
+11 KI_06085 20230315_rep4_24e          afm     610     614         6
+22 KI_06086 20230315_rep4_24e          ljy     602     595         0
+33 KI_06081 20230315_rep4_24e          emm     616     586         1
+2  KI_05738   20230315_rep4_5          afm     395     393         0
+13 KI_05740   20230315_rep4_5          ljy     379     389         0
+24 KI_05740   20230315_rep4_5          emm     391     397         0
+3  KI_05750   20230315_rep4_6          afm     186     165         0
+14 KI_05750   20230315_rep4_6          ljy     157     182         0
+25 KI_05750   20230315_rep4_6          emm     191     161         0
+4  KI_05754  20230315_rep4_6a          afm     487     334         2
+15 KI_05759  20230315_rep4_6a          ljy     479     328         0
+26 KI_05759  20230315_rep4_6a          emm     482     330         0
+5  KI_05784   20230315_rep4_8          afm     304     239         2
+16 KI_05786   20230315_rep4_8          ljy     295     195         0
+27 KI_05784   20230315_rep4_8          emm     302     224         0
+6  KI_05790   20230315_rep4_9          afm     226     429         4
+17 KI_05790   20230315_rep4_9          ljy     222     417         0
+28 KI_05790   20230315_rep4_9          emm     229     412        12</code></pre>
 <p>White plumage</p>
 <pre class="r"><code># plot counts for comparison
 p.spei_white &lt;-
@@ -804,7 +877,7 @@ p.spei_white &lt;-
   geom_bar(position=&quot;dodge&quot;,stat=&quot;identity&quot;) +
   geom_text(aes(label=n_spei_white), position=position_dodge(width=0.9), vjust=-0.25) +
   ylim(0, 1500) +
-  facet_wrap(~compare$new_id_flock)
+  facet_wrap(~compare$new_id_flock) #comment
 p.spei_white</code></pre>
 <p><img src="figure/compare_annotator_counts.Rmd/plot%20counts%20spei%20white-1.png" width="672" style="display: block; margin: auto;" />
 Brown plumage</p>
