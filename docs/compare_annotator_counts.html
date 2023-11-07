@@ -461,15 +461,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtree28fb15dd9af657801d1e0bf12053b7ae424de57dtargetblank28fb15da">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtreebf00979ac152ace7b9c26d6c8b303980af22c32ctargetblankbf00979a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/28fb15dd9af657801d1e0bf12053b7ae424de57d" target="_blank">28fb15d</a>
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/bf00979ac152ace7b9c26d6c8b303980af22c32c" target="_blank">bf00979</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtree28fb15dd9af657801d1e0bf12053b7ae424de57dtargetblank28fb15da"
+id="strongRepositoryversionstrongahrefhttpsgithubcomDJRIZZspeiwinterflockimageprocessingtreebf00979ac152ace7b9c26d6c8b303980af22c32ctargetblankbf00979a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -479,7 +479,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/28fb15dd9af657801d1e0bf12053b7ae424de57d" target="_blank">28fb15d</a>.
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/tree/bf00979ac152ace7b9c26d6c8b303980af22c32c" target="_blank">bf00979</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -496,6 +496,7 @@ were generated:
 Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    admin/
+    Ignored:    analysis/figure/
     Ignored:    data/images_2023/
     Ignored:    data/spei_winterSurvey2023_photographedFlockList_20231009.xlsx
     Ignored:    data/spei_winterSurvey_imageList_20231009.xlsx
@@ -565,6 +566,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/DJRIZZ/spei_winter_flock_image_processing/blob/bf00979ac152ace7b9c26d6c8b303980af22c32c/analysis/compare_annotator_counts.Rmd" target="_blank">bf00979</a>
+</td>
+<td>
+Daniel Rizzolo
+</td>
+<td>
+2023-11-07
+</td>
+<td>
+changed git ignore file to allow figures
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/DJRIZZ/spei_winter_flock_image_processing/aa22644aa4728dfb6adce015ecc86d444c6c1a65/docs/compare_annotator_counts.html" target="_blank">aa22644</a>
+</td>
+<td>
+Daniel Rizzolo
+</td>
+<td>
+2023-11-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -735,19 +770,21 @@ p.spei_white &lt;-
   ggplot(compare, aes(id_annotator, n_spei_white)) +
   geom_bar(position=&quot;dodge&quot;,stat=&quot;identity&quot;) +
   geom_text(aes(label=n_spei_white), position=position_dodge(width=0.9), vjust=-0.25) +
+  ylim(0, 1500) +
   facet_wrap(~compare$new_id_flock)
 p.spei_white</code></pre>
 <p><img src="figure/compare_annotator_counts.Rmd/plot%20counts%20spei%20white-1.png" width="672" style="display: block; margin: auto;" />
-brown plumage</p>
+Brown plumage</p>
 <pre class="r"><code># plot counts for comparison
 p.spei_brown &lt;-
   ggplot(compare, aes(id_annotator, n_spei_brown)) +
   geom_bar(position=&quot;dodge&quot;,stat=&quot;identity&quot;) +
   geom_text(aes(label=n_spei_brown), position=position_dodge(width=0.9), vjust=-0.25) +
+  ylim(0, 1500) +
   facet_wrap(~compare$new_id_flock)
 p.spei_brown</code></pre>
 <p><img src="figure/compare_annotator_counts.Rmd/plot%20counts%20spei%20brown-1.png" width="672" style="display: block; margin: auto;" />
-mottled plumage</p>
+Mottled plumage</p>
 <pre class="r"><code># plot counts for comparison
 p.spei_mottled &lt;-
   ggplot(compare, aes(id_annotator, n_spei_mottled)) +
