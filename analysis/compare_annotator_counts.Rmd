@@ -19,7 +19,7 @@ today<-Sys.Date()
 yesterday <- as.POSIXct(today-1)
 ```
 
-Compare annotator counts of eiders for images processed by everyone so far...
+Compare annotator counts of eiders for images processed by everyone so far....
 
 ```{r data wrangling, warning = FALSE}
 # load spreadsheets summarizing counts used by each annotator
@@ -59,6 +59,14 @@ remove <- c("20230315_rep4_11a",
 # remove those flock IDs from the data frame
 compare <- completed[!completed$id_flock %in% remove, ]
 ```
+
+```{r present data table, warning = FALSE}
+present <- cbind.data.frame(compare$id_photo, compare$id_flock, compare$id_annotator, compare$n_spei_white, compare$n_spei_brown, compare$n_spei_mottled)
+names <- c("id_photo", "id_flock", "id_annotator", "n_white", "n_brown", "n_mottled")
+colnames(present) <- names
+present[order(present$id_flock),]
+```
+
 White plumage
 ```{r plot counts spei white, warning = FALSE}
 # plot counts for comparison
@@ -67,7 +75,7 @@ p.spei_white <-
   geom_bar(position="dodge",stat="identity") +
   geom_text(aes(label=n_spei_white), position=position_dodge(width=0.9), vjust=-0.25) +
   ylim(0, 1500) +
-  facet_wrap(~compare$new_id_flock)
+  facet_wrap(~compare$new_id_flock) #comment
 p.spei_white
 
 ```
