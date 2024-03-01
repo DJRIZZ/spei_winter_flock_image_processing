@@ -9,3 +9,12 @@ analysis/*png
 analysis/*html
 analysis/*_cache
 analysis/site_libs
+data/*.csv
+data/*.jpg
+data/images_2023
+data/*.xlsx
+admin
+documents
+incoming
+metadata
+protocols
